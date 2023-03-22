@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Poppins&family=Roboto+Mono:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!--style sheet-->
+    <link rel="stylesheet" href="styles.css" />
+    <title>Training</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="wrapper">
+        <h1>Training App Mini</h1>
+        <div class="errs hidden">
+          <p id="close-btn">X</p>
+          <p id="err">Error msg here</p>
+        </div>
+        <form action="">
+          <h6>Training details</h6>
+          <div class="timer-input">
+            <label class="timer-label" for="">Timer</label>
+            <input id="mins" placeholder="mins" type="number" />
+            <input id="secs" placeholder="secs" type="number" />
+          </div>
+          <label for="color_1">Colour 1</label>
+          <select name="colors" id="c1" required>
+            <option value="">--Please choose an option--</option>
+          </select>
+          <label for="color_2">Colour 2</label>
+          <select name="colors" id="c2" required>
+            <option value="">--Please choose an option--</option>
+          </select>
+          <label for="color_3">Colour 3</label>
+          <select name="colors" id="c3">
+            <option value="">--Please choose an option--</option>
+          </select>
+          <label for="color_4">Colour 4</label>
+          <select name="colors" id="c4">
+            <option value="">--Please choose an option--</option>
+          </select>
+          <button class="btn">Start</button>
+        </form>
+        <div class="timer-container hidden">
+          <h6 class="timer-h">Timer</h6>
+          <div id="countdown">
+            <div id="countdown-number">
+              <span class="start_mins">00</span>:<span class="start_secs"
+                >00</span
+              >
+            </div>
+            <svg>
+              <circle
+                cx="70"
+                cy="70"
+                r="60"
+                stroke="#150050"
+                stroke-width="4px"
+                fill="none"
+              ></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

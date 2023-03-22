@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(#150050, #3f0071);
+  color: #fff;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 350px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.errs {
+  background-color: #fff;
+  color: red;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  margin: 1rem;
+}
+#close-btn {
+  margin: 0.2rem;
+  float: right;
+  cursor: pointer;
+}
+#close-btn :hover {
+  color: #fb2576;
+}
+h1 {
+  margin: 2rem, 1rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  color: #fb2576;
+  font-weight: 500;
+}
+h6 {
+  font-weight: lighter;
+  margin-bottom: 0.3rem;
+}
+form,
+input,
+select,
+option {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form {
+  padding: 2rem;
+  /* color: #fff; */
+}
+input,
+select {
+  padding: 0.3rem;
+}
+select {
+  color: #fff;
+}
+
+.timer-input {
+  display: flex;
+  align-items: left;
+}
+label {
+  text-align: left;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.timer-label {
+  margin-top: 0.5rem;
+}
+label {
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+#mins,
+#secs {
+  margin: 0.5rem;
+  width: 5rem;
+  color: #fff;
+}
+::placeholder {
+  color: #fff;
+}
+option {
+  color: #150050;
+}
+
+.btn {
+  margin-top: 1rem;
+  background-color: #150050;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  border: none;
+}
+.btn:hover {
+  background-color: #fb2576;
+  cursor: pointer;
+}
+
+/*Workout section*/
+.timer-container {
+  position: relative;
+  padding: 1rem;
+  width: inherit;
+  height: 75vh;
+  background: whitesmoke;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+}
+.timer-container h6 {
+  color: #150050;
+  font-weight: bolder;
+}
+#countdown {
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+}
+
+#countdown-number {
+  padding-left: 1rem;
+  color: #3f0071;
+  display: inline-block;
+  line-height: 130px;
+  font-size: 1.5;
+}
+span {
+  margin: 0.2rem;
+}
+svg {
+  stroke-dasharray: 380px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  position: absolute;
+  bottom: 30%;
+  right: 10%;
+  width: 200px;
+  height: 200px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+  /*animation: countdown 120s linear infinite forwards;*/
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 380px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.green {
+  background: linear-gradient(#0e9e45, #b9f3e4);
+}
+
+.blue {
+  background: linear-gradient(#8fbdd3, #c1efff);
+}
+
+.red {
+  background: linear-gradient(#f84646, #f8bbbb);
+}
+
+.pink {
+  background: linear-gradient(#eb76b2, #f3a6a6);
+}
+
+.orange {
+  background: linear-gradient(#faab78, #ffdca9);
+}
+.yellow {
+  background: linear-gradient(#ffd966, #fbfacd);
+}
+
+.white {
+  background: linear-gradient(#f9f9f9, #fffdf6);
+}
