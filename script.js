@@ -1,5 +1,5 @@
 "use strict";
-const synth = window.speechSynthesis;
+
 const svg = document.querySelector("svg");
 const form = document.querySelector("form");
 const timerBlock = document.querySelector(".timer-container");
@@ -26,7 +26,7 @@ const endText = "Time is up";
 let errorFound = false;
 
 const createFragment = function () {
-  allColors.forEach(function (color, index) {
+  allColors.forEach(function (color) {
     let opt = document.createElement("option");
     opt.innerHTML = color;
     opt.value = color;
@@ -39,6 +39,15 @@ const renderErr = function (msg) {
   errMsg.textContent = msg;
   return;
 };
+
+const synth = window.speechSynthesis;
+
+if (!speechSynthesis in window) {
+  errorFound = true;
+  renderErr("Your browser does not support this app please change browser");
+} else {
+  console.log("ok");
+}
 
 for (let i = 0; i < colorInputs.length; i++) {
   let clicked = false;
