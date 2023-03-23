@@ -20,19 +20,21 @@ const errMsg = document.querySelector("#err");
 const closeBtn = document.querySelector("#close-btn");
 let time, mins, secs, color1, color2, color3, color4;
 const selectedColors = [];
-let fragment = document.createDocumentFragment();
+
 const endText = "Time is up";
 
 let errorFound = false;
+let fragment = document.createDocumentFragment();
 
-const createFragment = function () {
-  allColors.forEach(function (color) {
-    let opt = document.createElement("option");
-    opt.innerHTML = color;
-    opt.value = color;
-    fragment.appendChild(opt);
-  });
-};
+colorInputs.forEach((color) => {
+  for (let i = 0; i < allColors.length; i++) {
+    let optn = allColors[i];
+    let el = document.createElement("option");
+    el.textContent = optn;
+    el.value = optn;
+    color.appendChild(el);
+  }
+});
 
 const renderErr = function (msg) {
   errEl.classList.remove("hidden");
@@ -49,20 +51,20 @@ if (!speechSynthesis in window) {
   console.log("ok");
 }
 
-for (let i = 0; i < colorInputs.length; i++) {
-  let clicked = false;
-  colorInputs[i].addEventListener("click", function () {
-    if (clicked == false) {
-      createFragment();
-      colorInputs[i].appendChild(fragment);
-      clicked = true;
-    } else {
-      colorInputs[i].removeChild(fragment);
-      fragment = document.createDocumentFragment();
-      clicked = false;
-    }
-  });
-}
+// for (let i = 0; i < colorInputs.length; i++) {
+//   let clicked = false;
+//   colorInputs[i].addEventListener("click", function () {
+//     if (clicked == false) {
+//       createOptions();
+//       colorInputs[i].appendChild(fragment);
+//       clicked = true;
+//     } else {
+//       colorInputs[i].removeChild(fragment);
+//       fragment = document.createDocumentFragment();
+//       clicked = false;
+//     }
+//   });
+// }
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
