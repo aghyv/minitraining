@@ -11,6 +11,7 @@ const c3 = document.querySelector("#c3");
 const c4 = document.querySelector("#c4");
 const colorInputs = [];
 colorInputs.push(c1, c2, c3, c4);
+let gap = document.querySelector("#gap");
 const minInput = document.querySelector("#mins");
 const secInput = document.querySelector("#secs");
 const minsEl = document.querySelector(".start_mins");
@@ -20,7 +21,7 @@ const errMsg = document.querySelector("#err");
 const closeBtn = document.querySelector("#close-btn");
 let time, mins, secs, color1, color2, color3, color4;
 const selectedColors = [];
-
+const gapDefault = 3;
 const endText = "Time is up";
 
 let errorFound = false;
@@ -51,21 +52,6 @@ if (!speechSynthesis in window) {
   console.log("ok");
 }
 
-// for (let i = 0; i < colorInputs.length; i++) {
-//   let clicked = false;
-//   colorInputs[i].addEventListener("click", function () {
-//     if (clicked == false) {
-//       createOptions();
-//       colorInputs[i].appendChild(fragment);
-//       clicked = true;
-//     } else {
-//       colorInputs[i].removeChild(fragment);
-//       fragment = document.createDocumentFragment();
-//       clicked = false;
-//     }
-//   });
-// }
-
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   getValues();
@@ -83,6 +69,7 @@ form.addEventListener("submit", function (e) {
 });
 
 const getValues = function () {
+  gap = +gap.value;
   mins = +minInput.value;
   secs = +secInput.value;
   mins < 10 ? (minsEl.textContent = `0${mins}`) : (minsEl.textContent = mins);
@@ -93,6 +80,9 @@ const getValues = function () {
   color3 = c3.value;
   color4 = c4.value;
   selectedColors.push(color1, color2, color3, color4);
+  if (!gap) {
+    gap = gapDefault;
+  }
   errorCheck();
 };
 
@@ -117,7 +107,7 @@ const randomColor = function () {
   const randomNum = Math.floor(Math.random() * 4);
   let randomColorVar = selectedColors[randomNum];
 
-  if (time % 3 === 0) {
+  if (time % gap === 0) {
     const randomColorUtt = new SpeechSynthesisUtterance(randomColorVar);
     synth.speak(randomColorUtt);
 
